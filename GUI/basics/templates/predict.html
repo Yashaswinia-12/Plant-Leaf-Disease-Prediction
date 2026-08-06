@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks prediction</title>
+</head>
+<body>
+  <style>
+    
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+
+            background: linear-gradient(rgba(20,20,20,0.7), rgba(40,20,0,0.8)),
+            url("https://static.vecteezy.com/system/resources/previews/055/742/205/non_2x/exam-concept-education-study-digital-e-learning-degree-postgraduate-concept-checking-exam-results-modern-flat-cartoon-style-design-illustration-on-background-vector.jpg");
+
+            background-size: cover;
+            color: white;
+        }
+
+</style> 
+  
+    <form method="POST">
+        {% csrf_token %}
+        <h1 align="center">Exam Marks Prediction</h1>
+        <table align="center">
+          <tr>
+            <td>
+              Enter the Hours:
+            </td>
+            <td>
+              <input type="text" name="texthours">
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Enter the Age:
+            </td>
+            <td>
+              <input type="text" name="textage">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Enter the Internet(1/0):
+            </td>
+            <td>
+              <input type="text" name="textinternet">
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              <button type="submit" class="btn btn-primary"  name="buttonadd">Predict</button>
+              
+            </td>
+          </tr>
+          <tr>
+            <td>
+              {{ result }}
+            </td>
+          </tr>
+    
+    
+        </table>
+      </form>
+
+</body>
+</html>

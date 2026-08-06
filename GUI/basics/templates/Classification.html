@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<div class="card shadow-lg p-4" style="background-image: url('https://img.freepik.com/free-vector/abstract-light-blue-wave-background_1055-3072.jpg?t=st=1734770619~exp=1734774219~hmac=e2053ce940e4e433619d944c6fc12c3caabbdda7e234d0ab195c6cfb41f3c917&w=740')">
+        <h2 class="text-center text-primary">Birds predictions</h2>
+        <br />
+
+        <!-- Upload Form -->
+        <form method="POST" enctype="multipart/form-data" class="text-center">
+            {% csrf_token %}
+            
+            <!-- File Upload Section -->
+            <div class="form-group">
+                <label for="fileUpload" class="font-weight-bold">Upload File</label>
+                <input type="file" name="myfile" id="fileUpload" class="form-control-file border p-2">
+            </div>
+
+            <!-- Upload Button -->
+            <button type="submit" class="btn btn-success btn-lg mt-3">Predict</button>
+        </form>
+
+        {% if uploaded_file_url %}
+        <div class="alert alert-info mt-4 text-center">
+            <p><strong>File uploaded at:</strong> <a href="{{ uploaded_file_url }}" target="_blank">{{ uploaded_file_url }}</a></p>
+        </div>
+        {% endif %} 
+
+        {% if result %}
+        <div class="text-center mt-4">
+            <h1 class="display-4 text-danger font-weight-bold">{{ result }}</h1>
+        </div>
+        {% endif %}
+    </div>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee update page</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1>
+                Employee Update
+            </h1>
+            <table>
+                <tr>
+                    <td>
+                        Employee Name:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getEmployee.EMP_NAME}}" name="employeename">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Employee Designation:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getEmployee.EMP_DES}}" name="employeedes">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Employee Place:
+                    </td>
+                    <td>
+                        <input type="text" value="{{getEmployee.EMP_Place}}" name="employeeplace">
+                    
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="bth btn-primary" name="submit">Update</button>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+    
+</body>
+</html>

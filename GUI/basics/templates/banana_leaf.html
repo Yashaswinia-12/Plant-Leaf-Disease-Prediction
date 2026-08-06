@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banana Leaf Disease Prediction</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+
+            /* 🌿 Leaf Background */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+            url("https://static.vecteezy.com/system/resources/thumbnails/000/619/894/small/2190.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .container {
+            
+            width: 450px;
+            margin: 60px auto;
+            padding: 30px;
+            border-radius: 20px;
+
+            /* Glass effect */
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0px 0px 25px rgba(0,0,0,0.5);
+            
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #a8ff78;
+        }
+
+        label {
+            font-size: 14px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: linear-gradient(45deg, #56ab2f, #a8e063);
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.6);
+            text-align: center;
+        }
+
+        .leaf-img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        
+
+    </style>
+    <style>
+        /* 🌿 Result Card */
+    .result-card {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 0 25px rgba(168, 255, 120, 0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+    /* Heading */
+    .result-card h2 {
+        text-align: center;
+        color: #a8ff78;
+        margin-bottom: 15px;
+    }
+
+    /* Each Algorithm Row */
+    .algo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 10px;
+        margin-top: 10px;
+
+        border-radius: 10px;
+        background: rgba(0,0,0,0.4);
+    }
+
+    /* Label */
+    .algo p {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    /* Result Value */
+    .algo span {
+        font-weight: bold;
+        color: #a8ff78;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .good {
+    color: #7CFC00;
+    text-shadow: 0 0 10px #7CFC00;
+}
+
+    .bad {
+    color: #ff4d4d;
+    text-shadow: 0 0 10px #ff4d4d;
+}
+    </style>
+    <span class="{% if svm == 'Healthy' %}good{% else %}bad{% endif %}">
+    {{ svm }}
+    </span>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 🌿 Leaf Image -->
+    <img class="leaf-img" src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-981-19-4052-1_14/MediaObjects/522366_1_En_14_Fig5_HTML.png">
+    <h1>Banana Leaf Disease Detection</h1>
+    <a href="/logout/" style="float:right; color:white;">Logout</a>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Leaf Length (cm)</label>
+        <input type="number" name="LeafLength" step="any" required>
+
+        <label>Leaf Width (cm)</label>
+        <input type="number" name="LeafWidth" step="any" required>
+
+        <label>Color Intensity</label>
+        <select name="ColorIntensity">
+            <option>Light</option>
+            <option>Medium</option>
+            <option>Dark</option>
+        </select>
+
+        <label>Spots Present</label>
+        <select name="SpotsPresent">
+            <option value="1">1</option>
+            <option value="0">0</option>
+        </select>
+
+        <label>Moisture Level (%)</label>
+        <input type="number" name="MoistureLevel" step="any">
+
+        <label>Texture</label>
+        <select name="Texture">
+            <option>Smooth</option>
+            <option>Rough</option>
+        </select>
+
+        <label>Humidity (%)</label>
+        <input type="number" name="Humidity" step="any">
+
+        <label>Temperature (°C)</label>
+        <input type="number" name="Temperature" step="any">
+
+        <label>Soil Type</label>
+        <select name="SoilType">
+            <option>Clay</option>
+            <option>Sandy</option>
+            <option>Loamy</option>
+        </select>
+
+        <button type="submit">Predict Disease 🌿</button>
+
+    </form>
+    
+
+    {% if svm %}
+    <div class="result-card">
+
+<h2>🌿 Prediction Result</h2>
+
+<div class="algo">
+    <p>🧠 SVM</p>
+    <span>{{ svm }} ({{ svm_acc }}%)</span>
+</div>
+
+<div class="algo">
+    <p>📊 Logistic Regression</p>
+    <span>{{ lr }} ({{ lr_acc }}%)</span>
+</div>
+
+<div class="algo">
+    <p>🔍 KNN</p>
+    <span>{{ knn }} ({{ knn_acc }}%)</span>
+</div>
+
+<hr style="margin:15px 0; border:1px solid rgba(255,255,255,0.2);">
+
+<div class="algo">
+    <p>🏆 Best Model</p>
+    <span>{{ best_model }}</span>
+</div>
+
+<div class="algo">
+    <p>🌿 Final Prediction</p>
+    <span>{{ best_prediction }}</span>
+</div>
+
+</div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

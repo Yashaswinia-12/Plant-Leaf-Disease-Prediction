@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee View Page</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1>Employee Details</h1>
+            <table border="1">
+                <tr>
+                    <td>
+                        Employee Name:
+                    </td>
+                    <td>
+                        Employee Designation:
+                    </td>
+                    <td>
+                        Employee Place:
+                    </td>
+                </tr>
+                <tr>
+                {% for Employee in getEmployee %}
+                    <td>
+                        {{ Employee.EMP_NAME}}
+                    </td>
+                    <td>
+                        {{ Employee.EMP_DES }}
+                   </td>
+                   <td>
+                        {{ Employee.EMP_Place }}
+                   </td>
+                   <td>
+                        <a href="/Employee_update/{{ Employee.id }}" class="btn btn-primary">Edit</a>
+                   </td>
+                   <td>
+                        <a href="/Employee_delete/{{ Employee.id }}" class="btn btn-danger">Delete</a>
+                   </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+    </form>
+</body>
+</html>

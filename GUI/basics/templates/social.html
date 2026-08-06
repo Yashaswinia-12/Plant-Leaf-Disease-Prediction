@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Network Ads Prediction</title>
+
+<style>
+
+body{
+background-image: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+font-family: Arial;
+}
+
+table{
+background-color: rgba(255,255,255,0.8);
+padding:20px;
+border-radius:10px;
+}
+
+h1{
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<form method="POST">
+{% csrf_token %}
+
+<h1 align="center">Social Network Ads Prediction</h1>
+
+<table align="center">
+
+<tr>
+<td>Enter Gender (Male=1 Female=0):</td>
+<td>
+<input type="text" name="textgender">
+</td>
+</tr>
+
+<tr>
+<td>Enter Age:</td>
+<td>
+<input type="text" name="textage">
+</td>
+</tr>
+
+<tr>
+<td>Enter Estimated Salary:</td>
+<td>
+<input type="text" name="textsalary">
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="center">
+<button type="submit" name="buttonpredict">Predict</button>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="center">
+<h3>{{ result }}</h3>
+</td>
+</tr>
+
+</table>
+
+</form>
+
+</body>
+</html>

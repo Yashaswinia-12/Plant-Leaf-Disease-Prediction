@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Delete page</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1>Employee Delete</h1>
+            <table>
+                <tr>
+                    <td>
+                        Employee Name: 
+                    </td>
+                    <td>
+                        <input type="text" value="{{getEmployee.EMP_NAME}}" name="employeename">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="btn btn-danger" name="submit">Delete</button>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+<style>
+    
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+
+            background: linear-gradient(rgba(20,20,20,0.7), rgba(40,20,0,0.8)),
+            url("https://i.pinimg.com/736x/8c/43/64/8c43645fe8d0ac164a6925448be32858.jpg");
+
+            background-size: cover;
+            color: white;
+        }
+
+</style> 
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1>Calculator</h1>
+            <table>
+                <tr>
+                    <td>
+                        First Number:
+                    </td>
+                    <td>
+                        <input type="text" name="firstnumber">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Second Number:
+                    </td>
+                    <td>
+                        <input type="text" name="secondnumber">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Fav Number:
+                    </td>
+                    <td>
+                        <input type="text" name="favnumber">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" name="buttonadd">ADD</button>
+                        <button type="submit" name="buttonsub">SUB</button>
+                        <button type="submit" name="buttonmul">MUL</button>
+                        <button type="submit" name="buttondiv">DIV</button>
+                        <button type="submit" name="buttonfav">FAV</button>
+                        <button type="submit" name="submit">Submit</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ result }}
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+</body>
+</html>

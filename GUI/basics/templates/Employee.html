@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Page</title>
+</head>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <center>
+            <h1> Employee </h1>
+            <table>
+                <tr>
+                    <td>
+                        Employee Name:
+                    </td>
+                    <td>
+                        <input type="text" name="employeename">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Employee Designation:
+                    </td>
+                    <td>
+                        <input type="text" name="employeedes">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Employee Place:
+                    </td>
+                    <td>
+                        <input type="text" name="employeeplace">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" name="submit">Save</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td> {{ result }} </td>
+
+                </tr>
+            </table>
+        </center>
+    </form>
+</body>
+</html>
