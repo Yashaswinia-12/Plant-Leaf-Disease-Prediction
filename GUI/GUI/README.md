@@ -1,44 +1,130 @@
-# AI Food Nutrient Recommendation System
+# 🌿 Plant Leaf Disease Prediction System
 
-## Description
+A Machine Learning and Django-based web application that predicts diseases in plant leaves and evaluates cinnamon quality using multiple classification algorithms. The system compares different machine learning models and displays the best-performing algorithm for accurate predictions.
 
-An AI-powered application that identifies food items from uploaded images and provides nutritional analysis and meal recommendations.
 
----
+## 📌 Project Overview
 
-## Features
+This project consists of two prediction modules:
 
-- Food Recognition
-- Nutrition Analysis
-- Image Upload
-- Personalized Meal Recommendations
+- 🍌 Banana Leaf Disease Prediction
+- 🌱 Cinnamon Quality Prediction
 
----
+The application uses machine learning algorithms to classify plant health and quality based on user-provided inputs through a Django web interface.
 
-## Tech Stack
 
+## 🚀 Features
+
+- Predicts Banana Leaf Disease
+- Predicts Cinnamon Quality
+- Compares multiple Machine Learning algorithms
+- Displays the best-performing model
+- Interactive Django-based web interface
+- Input validation for accurate predictions
+- Real-time prediction results
+
+
+## 🛠 Tech Stack
+
+### Programming Language
 - Python
-- TensorFlow
-- YOLO
-- OpenCV
-- Nutritionix API
+
+### Framework
+- Django
+
+### Machine Learning
+- Logistic Regression
+- Support Vector Machine (SVM)
+- K-Nearest Neighbors (KNN)
+
+### Libraries
+- Pandas
+- NumPy
+- Scikit-learn
+- Joblib
+
+### Frontend
+- HTML
+- CSS
+- Bootstrap
+
+### Database
+- SQLite
+
+
+## ⚙️ Installation
+
+### Clone the repository
+
+```bash
+git clone https://github.com/yashaswinia-12/Plant-Leaf-Disease-Prediction.git
+```
+
+### Navigate to the project
+
+```bash
+cd Plant-Leaf-Disease-Prediction
+```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Django server
+
+```bash
+python manage.py runserver
+```
+
+Open your browser and visit:
+
+```
+http://127.0.0.1:8000/
+```
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ### Home Page
 
-![Home](images/home.png)
+![Home](images/Ml dashboard.png)
 
-### Upload Page
+### Banana Disease Prediction
 
-![Upload](images/upload.png)
+![Banana](images/banana Leaf.png)
 
-### Prediction
+### Cinnamon Quality Prediction
 
-![Prediction](images/prediction.png)
+![Cinnamon](images/cinnamon.png)
 
-### Result
 
-![Result](images/result.png)
+## 📊 Machine Learning Models
+
+- Logistic Regression
+- Support Vector Machine (SVM)
+- K-Nearest Neighbors (KNN)
+
+The application compares all three algorithms and displays the model with the highest prediction accuracy.
+
+
+## 🎯 Future Improvements
+
+- Add CNN-based image classification
+- Deploy the application to Render or Railway
+- Support additional crop diseases
+- Improve UI/UX
+- Add prediction history
+
+
+## 👩‍💻 Author
+
+**Yashaswini A**
+
+Software Engineer | Python Developer | Machine Learning Enthusiast
+
+GitHub: https://github.com/yashaswinia-12
+
+LinkedIn: https://www.linkedin.com/in/yashaswini-a-030282256
